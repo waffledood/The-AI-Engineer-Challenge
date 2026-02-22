@@ -16,11 +16,11 @@ cd frontend
 npm install
 ```
 
-2. **Required for local dev** — set the API URL. Create `.env.local`:
+2. (Optional) Configure the API URL. By default, the frontend calls `http://localhost:8000`. To use a different API:
 
 ```bash
 cp env.example .env.local
-# Edit .env.local: NEXT_PUBLIC_API_URL=http://localhost:8000
+# Edit .env.local and set NEXT_PUBLIC_API_URL to your API base URL
 ```
 
 ## Running Locally
@@ -49,11 +49,12 @@ npm run dev
 | `npm run start` | Start production server           |
 | `npm run lint` | Run ESLint                         |
 
-## Vercel Deployment (Monorepo)
+## Vercel Deployment
 
-This project deploys both the Next.js frontend and the Python API as a single Vercel project.
+The frontend is built for Vercel. Deploy with:
 
-1. In **Vercel Project Settings → General → Root Directory**, set `frontend`.
-2. Add environment variable: `OPENAI_API_KEY` (your OpenAI API key).
-3. Leave `NEXT_PUBLIC_API_URL` unset — the frontend uses same-origin `/api/chat`.
-4. Deploy: `vercel` or push to your connected Git repo.
+```bash
+vercel
+```
+
+Set `NEXT_PUBLIC_API_URL` in your Vercel project environment variables to point to your deployed API.
