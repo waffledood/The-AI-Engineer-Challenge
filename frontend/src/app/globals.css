@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base styles for contrast and readability (per frontend rules) */
+:root {
+  --background: #212121;
+  --foreground: #ececec;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+}
