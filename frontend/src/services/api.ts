@@ -1,12 +1,9 @@
 /**
  * Chat API client — calls the FastAPI backend.
- * Uses NEXT_PUBLIC_API_URL for local dev (localhost:8000) or production API.
+ * - Local dev: set NEXT_PUBLIC_API_URL=http://localhost:8000 in .env.local
+ * - Production (monorepo): leave unset to use same-origin /api/chat
  */
-
-const API_BASE =
-  typeof window !== "undefined"
-    ? process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"
-    : "http://localhost:8000";
+const API_BASE = process.env.NEXT_PUBLIC_API_URL ?? "";
 
 export type ChatResponse = { reply: string };
 
